@@ -4,8 +4,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string getRandomWord() {
-    return "SIMPLE";
+string getRandomWord(vector<string> wordlist) {
+    srand(time(0));
+    int len = wordlist.size();
+    int idx = rand() % len;
+    return wordlist[idx];
 }
 
 bool checkWord(string a, string b) {
@@ -16,6 +19,18 @@ bool checkWord(string a, string b) {
         if (a[i] != b[i])
             isEqual = false;
     return isEqual;
+}
+
+bool checkValidity(string a, string b, map<string, bool> dictionary) {
+    int n = a.length();
+    if (n == b.length()) {
+        for (int i = 0; i < n; ++i) {
+            if (a[i] == ' ')
+                return false;
+        }
+        return dictionary[a];
+    }
+    return false;
 }
 
 #endif
