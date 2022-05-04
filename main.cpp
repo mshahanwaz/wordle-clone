@@ -28,7 +28,7 @@ int main() {
             printResults(attempts, randomWord);
             if (!valid)
                 cout << endl << "\033[41mDISCARDED\033[0m";
-            cout << endl << "Guess the randomWord :: ";
+            cout << endl << "Guess the word :: ";
             getline(cin >> ws, attempts[i]);
             valid = checkValidity(attempts[i], randomWord, dictionary);
         } while (!valid);
